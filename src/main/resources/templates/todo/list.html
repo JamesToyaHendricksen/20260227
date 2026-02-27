@@ -27,7 +27,10 @@
                 <tr th:each="todo : ${todos}">
                     <td class="text-center" th:text="${todo.id}">1</td>
                     <td th:text="${todo.title}">Sample task</td>
-                    <td th:text="${todo.completed} ? 'DONE' : 'TODO'">TODO</td>
+                    <td>
+                        <span th:if="${todo.completed}">&#23436;&#20102;</span>
+                        <span th:unless="${todo.completed}">&#26410;&#23436;&#20102;</span>
+                    </td>
                 </tr>
                 <tr th:if="${#lists.isEmpty(todos)}">
                     <td colspan="3" class="text-center text-muted py-4">No ToDo items yet.</td>
